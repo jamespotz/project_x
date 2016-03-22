@@ -1,0 +1,42 @@
+<%= content_for :title do %>
+	Post Page
+<% end %>
+<div class="post_hero">
+	<h1 class="text-center">
+	    ALL POST<br>
+	    <small>This page contains all of the post from users.</small>
+	</h1>
+</div>
+<div class="row post_content small-up-1 medium-up-2 large-up-4">
+  <% @posts.each do |post| %>
+    <div class="column post_box">
+      <%= link_to post_path(post.id) do %>
+	  	<%= image_tag post.thumbnail.url(:thumb), :class => "thumbnail post_thumbnail" %>
+	  <% end %>
+	  <h4><%= link_to post.title.upcase, post_path(post.id), :class => "post_heading" %></h4>
+	  <small class="subheader">
+	    <%= post.created_at.strftime("%B %d, %Y") %>
+	    <cite>Admin</cite>
+	  </small>
+	  <br>
+	  <small>
+	  	<%= truncate(post.description, length: 100, omission: "...") %>
+	  	<%= link_to "(see more)", post_path(post.id), :class => "post_omission" %>
+	  </small><br><br>
+	  <% post.tag.split(',').each do |tag| %>
+	  	<span class="secondary label">
+	  	  <%= tag.include?('#') ? tag.strip.downcase : "##{tag.strip.downcase}"%>
+	    </span>
+	  <% end %>
+	  <br><br>
+	  <% if user_signed_in? %>
+	  	<%= link_to "Edit Post", edit_post_path(post.id), :class => "small button white_button edit_button" %>
+	  <% end %>
+	</div>
+  <% end %>
+</div>
+<div class="floating_button">
+	<%= link_to new_post_path do %>
+		<span class="badge">+</span>
+	<% end %>
+</div>

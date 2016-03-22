@@ -1,0 +1,126 @@
+@import "foundation_and_overrides";
+$dark-primary-color: #303F9F;
+$primary-color: #3F51B5;
+$light-primary-color: #C5CAE9;
+$text-icon: #FFFFFF;
+$accent-color: #FF5252;
+$primary-text: #212121;
+$secondary-text: #727272;
+$divider-color: #B6B6B6;
+$box_shadow_level_3: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+$menu-background: #263238;
+$darker: #000000;
+$white: #ffffff;
+$dark: #333333;
+body {marging-top: 2rem;}
+.title-bar {
+  background: $dark-primary-color;
+  padding: 0.9rem;
+}
+.top-bar {
+  background: $dark-primary-color; 
+  box-shadow: $box_shadow_level_3;
+  ul {
+    background: $dark-primary-color;
+    li {
+      background: $dark-primary-color;
+      border: none!important;
+      a {
+        color: $white;
+      }
+      .no_padding{
+        padding: 0;
+      }
+    }
+  }
+}
+.menu-text {
+  color: $white;
+  @media only screen and (max-width: 40em) {
+    display: none !important;
+  }
+}
+
+
+@media only screen and (min-width: 40em) {
+  .menu:last-child {
+    border-left: 1px solid #4e4e4e;
+  }
+  .menu:first-child {
+    border-left: none;
+  }
+  .menu {
+    li:not(:last-child) {
+      border-right: 1px solid #4e4e4e;
+    }
+  }
+}
+.dropdown.menu .submenu {
+  border: none;
+}
+.dropdown.menu .is-dropdown-submenu-parent.is-right-arrow>a::after {
+  border-color: $white transparent transparent;
+}
+.is-drilldown-submenu-parent>a::after {
+  border-color: transparent transparent transparent $white;
+}
+.js-drilldown-back::before {
+  border-color: transparent $white transparent transparent;
+}
+
+.white_button{
+    background: $accent-color;
+    color: $text-icon;
+    box-shadow: $box_shadow_level_3;
+    &:hover{
+      background: lighten($accent-color, 5%);
+    }
+  }
+
+.floating_button{
+  position: fixed;
+  display: block;
+  right: 10px;
+  bottom: 10px;
+  .badge{
+    background: $accent-color;
+    padding: 0.01em 0.5em;
+    font-size: 2em;
+    box-shadow: $box_shadow_level_3;
+    min-width: 0;
+    &:hover{
+      background: lighten($accent-color, 5%);
+    }
+  }
+}
+.post_box{
+  position: relative;
+  padding-top:10px;
+  a.post_heading{
+    color: $primary-text;
+  }
+  a.post_omission{
+    color: lighten($darker, 50%);
+  }
+  .label{
+    background: $secondary-text;
+  }
+}
+.edit_button{
+    position: absolute;
+    top: 10px;
+    border-radius: 0 0 5px 0; 
+  }
+.post_hero{
+  width: 100%;
+  height: 300px;
+  background: $primary-color;
+  h1{
+    padding-top: 70px;
+    color: $text-icon;
+    small{
+      color: $light-primary-color;
+    }
+  }
+}
+@import "posts";

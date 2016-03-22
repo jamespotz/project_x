@@ -1,0 +1,36 @@
+<%= content_for :title do %>
+	<%= @post.title.titleize %>
+<% end %>
+<style type="text/css">
+	.title-bar {
+  background: transparent;
+}
+.top-bar {
+  background: transparent; 
+  box-shadow: none;
+  position: relative;
+  display: block;
+  z-index: 99;
+ }
+ .top-bar ul {
+    background: transparent;
+ }
+ .top-bar ul li {
+      background: transparent;
+ }
+</style>
+<div class="post_banner">
+  <h1><%= @post.title.upcase %></h1>
+  <div style="background: url('<%= @post.thumbnail.url(:medium) %>') no-repeat center center; width: 100%; height: 500px; background-size: cover;opacity: 0.5;">
+  </div>
+</div>
+<div class="row post_description_space">
+	<div class="large-6 large-centered column">
+	  <p>
+	  	<%= @post.description %>
+	  </p><br>	 
+    <% if user_signed_in? %>
+	   <%= link_to "Edit Post", edit_post_path(@post.id), :class => "small button white_button" %> 
+    <% end %>
+	</div>
+</div>

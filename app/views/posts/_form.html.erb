@@ -1,0 +1,19 @@
+<div class="large-6 large-centered column">
+  <h3>Create a new Post</h3>
+  	<%= simple_form_for @post do |f| %>
+  	  <div class="input-group">
+  	    <%= f.input :title, :placeholder => "Title" %>	
+  	  </div>
+      <div class="input-group">
+        <%= f.input :tag, :placeholder => "Tag" %>  
+      </div>
+  	  <div class="input-group">
+  	    <%= f.text_area :description, :rows => 5, :placeholder => "Description" %>	
+  	  </div>
+  	  <div class="input-group">
+  	  	<label for="post_thumbnail" class="small button dark_button">Upload File</label>
+  	    <%= f.file_field :thumbnail, :class => "show-for-sr" %>	
+  	  </div>
+      <%= f.button :submit, :class => "small button white_button" %>
+    <% end %>
+  </div>
