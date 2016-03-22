@@ -8,11 +8,12 @@
         <%= f.input :tag, :placeholder => "Tag" %>  
       </div>
   	  <div class="input-group">
-  	    <%= f.text_area :description, :rows => 5, :placeholder => "Description" %>	
+  	    <%= f.text_area :description, :rows => 10, :cols => 120, :placeholder => "Enter text here...", :class => "tinymce" %>	
+        <%= tinymce %>
   	  </div>
   	  <div class="input-group">
-  	  	<label for="post_thumbnail" class="small button dark_button">Upload File</label>
-  	    <%= f.file_field :thumbnail, :class => "show-for-sr" %>	
+  	  	<label for="post_thumbnail" class="small button white_button">Upload File</label>
+  	    <%= f.input :thumbnail, :class => "show-for-sr", as: :file %>	
   	  </div>
       <%= f.button :submit, :class => "small button white_button" %>
     <% end %>

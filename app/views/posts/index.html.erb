@@ -20,7 +20,7 @@
 	  </small>
 	  <br>
 	  <small>
-	  	<%= truncate(post.description, length: 100, omission: "...") %>
+	  	<%= truncate( strip_tags(post.description), length: 100, omission: "...") %>
 	  	<%= link_to "(see more)", post_path(post.id), :class => "post_omission" %>
 	  </small><br><br>
 	  <% post.tag.split(',').each do |tag| %>

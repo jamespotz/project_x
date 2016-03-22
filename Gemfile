@@ -25,7 +25,7 @@ gem "title"
 gem "uglifier"
 gem "paperclip", "~> 4.3"
 gem "devise"
-gem 'paperclip-imgur'
+gem 'tinymce-rails'
 
 group :development do
   gem "quiet_assets"
@@ -63,4 +63,5 @@ end
 
 group :staging, :production do
   gem "rack-timeout"
+  gem "paperclip-imgur"
 end

@@ -27,7 +27,7 @@
 <div class="row post_description_space">
 	<div class="large-6 large-centered column">
 	  <p>
-	  	<%= @post.description %>
+	  	<%= @post.description.html_safe %>
 	  </p><br>	 
     <% if user_signed_in? %>
 	   <%= link_to "Edit Post", edit_post_path(@post.id), :class => "small button white_button" %> 

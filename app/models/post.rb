@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
   validates_presence_of :title
   validates_presence_of :description
-  has_attached_file :thumbnail, styles: { medium: "1000x1000>", thumb: "300x300>"}, default_url: "/images/:style/missing.png"
+  has_attached_file :thumbnail, styles: { medium: "1000x1000>", thumb: "300x300>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :thumbnail, content_type: /\Aimage\/.*\Z/
 end
 
