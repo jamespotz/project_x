@@ -15,8 +15,11 @@
 	  <% end %>
 	  <h4><%= link_to post.title.upcase, post_path(post.id), :class => "post_heading" %></h4>
 	  <small class="subheader">
-	    <%= post.created_at.strftime("%B %d, %Y") %>
-	    <cite>Admin</cite>
+	    <%= post.created_at.strftime("%B %d, %Y") %><br>
+			<% count = 0 %>
+			<% post.comments.each { |i| count +=1 } %>
+			<cite>Admin</cite>
+			<%= count %> Comments
 	  </small>
 	  <br>
 	  <small>

@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+  has_many :comments
   validates_presence_of :title
   validates_presence_of :description
   has_attached_file :thumbnail, styles: { medium: "1000x1000>", thumb: "300x300>" }, default_url: "/images/:style/missing.png"

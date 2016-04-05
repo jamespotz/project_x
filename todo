@@ -1,0 +1,24 @@
+Todo
+Done - User can Comment
+- Guest can Comment
+Half Done - Show user Comments and Guest Comments
+Done - Show how many comments in a Post
+- Add a user thumbnail
+    - thumbnail must be 150x150px
+    - thumbnail must not exceed 1mb
+    - thumbnail should just be png, gif, jpeg and jpg
+- Add user dashboard
+- Add user settings and preferences
+- Show user activity log
+- Add user reply to a Comment
+- show comments reply on the activity log
+- +1 and -1 a comment
+- report a user
+- prevent comment spam
+- Add user thumbnail in the post page
+- share post to facebook, google plus and twitter
+- add a landing page
+- show more and show less in comments and replies
+- add unsplash api for images
+- Show search results (unsplash) - Grid style
+- Dropbox? google drive?

@@ -1,10 +1,10 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = Post.includes(:comments).all
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.includes(:comments).find(params[:id])
   end
 
   def new
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
       redirect_to @post
     else
       render :edit, :notice => "Title/Description cant be blank."
-    end        
+    end
   end
 
   def delete

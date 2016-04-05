@@ -1,3 +1,8 @@
+<div class="flash_message">
+  <% flash.each do |name, message| %>
+    <%= name %> : <%= message %>
+  <% end %>
+</div>
 <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
     <button class="menu-icon" type="button" data-toggle></button>
     <div class="title-bar-title">Menu</div>

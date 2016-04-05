@@ -6,7 +6,7 @@
   background: transparent;
 }
 .top-bar {
-  background: transparent; 
+  background: transparent;
   box-shadow: none;
   position: relative;
   display: block;
@@ -28,9 +28,31 @@
 	<div class="large-6 large-centered column">
 	  <p>
 	  	<%= @post.description.html_safe %>
-	  </p><br>	 
+	  </p><br>
     <% if user_signed_in? %>
-	   <%= link_to "Edit Post", edit_post_path(@post.id), :class => "small button white_button" %> 
+	   <%= link_to "Edit Post", edit_post_path(@post.id), :class => "small button white_button" %>
     <% end %>
+	</div>
+</div>
+<div class="row">
+	<div class="large-6 large-centered column">
+		<% @post.comments.each do |comment| %>
+			<%= comment.user.email %>
+			<%= comment.message.html_safe %>
+			<%= link_to "Delete" ,"/posts/#{ @post.id }/comments/#{ comment.id }",
+			  method: :delete %><br><br>
+		<% end %>
+	</div>
+</div>
+<div class="row comments">
+	<div class="large-6 large-centered column">
+		<%= simple_form_for [@post, @post.comments.new] do |f| %>
+		  <h1>Comment</h1>
+			<div class="input-group">
+				<%= f.text_area :message, :rows => 10, :cols => 120, :placeholder => "Enter text here...", :class => "tinymce" %>
+				<%= tinymce %>
+			</div>
+			<%= f.button :submit, :class => "small button white_button", :value => "Comment" %>
+		<% end %>
 	</div>
 </div>
