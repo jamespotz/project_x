@@ -290,7 +290,7 @@ PLATFORMS
 DEPENDENCIES
   autoprefixer-rails
   awesome_print
-  bourbon (= 5.0.0.beta.3)
+  bourbon
   bullet
   bundler-audit (>= 0.5.0)
   capybara-webkit
@@ -306,7 +306,7 @@ DEPENDENCIES
   honeybadger
   jquery-rails
   launchy
-  neat (~> 1.7.0)
+  neat
   newrelic_rpm (>= 3.9.8)
   normalize-rails (~> 3.0.0)
   paperclip (~> 4.3)

@@ -1,3 +1,6 @@
+@import "bourbon/bourbon";
+@import "base/base";
+@import "neat/neat";
 @import "foundation_and_overrides";
 $dark-primary-color: #303F9F;
 $primary-color: #3F51B5;
@@ -18,7 +21,7 @@ body {marging-top: 2rem;}
   padding: 0.9rem;
 }
 .top-bar {
-  background: $dark-primary-color; 
+  background: $dark-primary-color;
   box-shadow: $box_shadow_level_3;
   ul {
     background: $dark-primary-color;
@@ -109,7 +112,7 @@ body {marging-top: 2rem;}
 .edit_button{
     position: absolute;
     top: 10px;
-    border-radius: 0 0 5px 0; 
+    border-radius: 0 0 5px 0;
   }
 .post_hero{
   width: 100%;
@@ -123,4 +126,5 @@ body {marging-top: 2rem;}
     }
   }
 }
+
 @import "posts";

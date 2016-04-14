@@ -34,25 +34,29 @@
     <% end %>
 	</div>
 </div>
-<div class="row">
-	<div class="large-6 large-centered column">
+<div class="comments">
+	<div class="comments-list">
+		<h4>Comments</h4>
 		<% @post.comments.each do |comment| %>
-			<%= comment.user.email %>
-			<%= comment.message.html_safe %>
+			<span class="username"><%= comment.user.email %></span><br>
+		  <p><%= comment.message.html_safe %></p>
+			<span class="updated-at">
+			  <%= comment.updated_at.strftime('%b %d, %Y') %>&nbsp;
+				<%= "#{time_ago_in_words(comment.updated_at)} ago" %>
+			</span>
 			<%= link_to "Delete" ,"/posts/#{ @post.id }/comments/#{ comment.id }",
-			  method: :delete %><br><br>
+			  method: :delete %>
+				<hr>
 		<% end %>
 	</div>
 </div>
 <div class="row comments">
 	<div class="large-6 large-centered column">
 		<%= simple_form_for [@post, @post.comments.new] do |f| %>
-		  <h1>Comment</h1>
 			<div class="input-group">
-				<%= f.text_area :message, :rows => 10, :cols => 120, :placeholder => "Enter text here...", :class => "tinymce" %>
-				<%= tinymce %>
+				<%= f.text_area :message, :rows => 1, :cols => 120, :placeholder => "Enter text here..." %>
 			</div>
-			<%= f.button :submit, :class => "small button white_button", :value => "Comment" %>
+			<%= f.button :submit, :class => "small button white_button", :value => "Reply" %>
 		<% end %>
 	</div>
 </div>

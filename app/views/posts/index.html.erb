@@ -14,18 +14,18 @@
 	  	<%= image_tag post.thumbnail.url(:thumb), :class => "thumbnail post_thumbnail" %>
 	  <% end %>
 	  <h4><%= link_to post.title.upcase, post_path(post.id), :class => "post_heading" %></h4>
-	  <small class="subheader">
-	    <%= post.created_at.strftime("%B %d, %Y") %><br>
-			<% count = 0 %>
-			<% post.comments.each { |i| count +=1 } %>
-			<cite>Admin</cite>
-			<%= count %> Comments
-	  </small>
-	  <br>
 	  <small>
 	  	<%= truncate( strip_tags(post.description), length: 100, omission: "...") %>
 	  	<%= link_to "(see more)", post_path(post.id), :class => "post_omission" %>
-	  </small><br><br>
+	  </small>
+		<br>
+	  <small class="subheader">
+	    <%= "#{ time_ago_in_words(post.created_at) } ago" %><br>
+			<% count = 0 %>
+			<% post.comments.each { |i| count +=1 } %>
+			<%= count %> Comments
+	  </small>
+		<br>
 	  <% post.tag.split(',').each do |tag| %>
 	  	<span class="secondary label">
 	  	  <%= tag.include?('#') ? tag.strip.downcase : "##{tag.strip.downcase}"%>
